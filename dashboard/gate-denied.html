@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Access denied - ZK Posture Gate</title>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; display: grid; place-items: center;
+      background: #0b1416; color: #e6f2f1;
+      font: 15px/1.55 "Segoe UI", system-ui, sans-serif; padding: 24px;
+    }
+    .card {
+      width: 100%; max-width: 520px; padding: 28px 30px;
+      background: #112022; border: 1px solid #1e3a3d; border-radius: 10px;
+      border-top: 3px solid #b4544a;
+    }
+    h1 { margin: 10px 0 8px; font-size: 24px; }
+    .badge {
+      display: inline-block; padding: 3px 9px; border-radius: 999px;
+      border: 1px solid #6b3a34; background: #2a1715; color: #e8a79f;
+      font-size: 12px; letter-spacing: .04em; text-transform: uppercase;
+    }
+    p { margin: 10px 0; color: #a9c4c2; }
+    code { font-family: Consolas, monospace; color: #d8ecea; }
+    .brand { color: #7fd4cc; font-weight: 600; letter-spacing: .02em; }
+    .sub { color: #7d9c9a; font-size: 12px; margin-top: 2px; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="brand">ZK Posture Gate</div>
+    <div class="sub">Protected internal application</div>
+    <div style="margin-top:14px"><span class="badge">401 &middot; Unauthorized</span></div>
+    <h1>No valid attestation.</h1>
+    <p>{{REASON}}</p>
+    <p>
+      The app opens only with a short-lived token issued after a successful
+      zero-knowledge attestation. Run <code>node agent attest --open</code> on an
+      enrolled, compliant laptop.
+    </p>
+    <p style="font-size:13px">
+      The gate never received this laptop's build, update age, firewall or
+      Defender state.
+    </p>
+  </main>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZK Posture Gate</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+  <!-- ===================== login ===================== -->
+  <div id="login-view" class="login-wrap" hidden>
+    <form id="login-form" class="panel login-card" novalidate>
+      <div class="brand">
+        <span class="brand-name">ZK Posture Gate</span>
+        <span class="brand-sub">Admin sign in</span>
+      </div>
+      <p class="muted small">Prove you're patched without telling us what you're running.</p>
+      <!-- A real username field helps password managers; the account is always "admin". -->
+      <label class="field visually-hidden" for="login-username">
+        Admin user
+        <input id="login-username" name="username" type="text" value="admin" autocomplete="username" readonly tabindex="-1">
+      </label>
+      <label class="field" for="login-password">
+        Admin password
+        <input id="login-password" name="password" type="password" autocomplete="current-password" required>
+      </label>
+      <div id="login-error" class="login-error" role="alert"></div>
+      <button id="login-submit" class="btn btn-primary" type="submit">Sign in</button>
+    </form>
+  </div>
+
+  <!-- ===================== app ===================== -->
+  <div id="app-view" class="shell" hidden>
+    <aside class="sidebar" aria-label="Main navigation">
+      <div class="brand">
+        <span class="brand-name">ZK Posture Gate</span>
+        <span class="brand-sub">Posture without exposure</span>
+      </div>
+      <nav class="nav" id="nav">
+        <button type="button" data-nav="overview">Overview</button>
+        <button type="button" data-nav="decisions">Decisions</button>
+        <button type="button" data-nav="policy">Policy</button>
+        <button type="button" data-nav="devices">Devices</button>
+        <button type="button" data-nav="log">Log Integrity</button>
+        <button type="button" data-nav="advisory">Advisory</button>
+      </nav>
+      <div class="sidebar-foot">
+        <p>Posture values stored: <strong>0</strong></p>
+        <p>Only pass/fail and a reason code leave a laptop.</p>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <span class="pill" title="Verifier address">
+          Verifier <span id="verifier-address" class="mono">&mdash;</span>
+        </span>
+        <span class="spacer"></span>
+        <span id="nav-user" class="muted small">admin</span>
+        <button id="logout-btn" class="btn btn-sm" type="button" data-action="logout">Sign out</button>
+      </header>
+
+      <div id="error-banner" class="banner banner-error" hidden>
+        <strong>&#10006; Error</strong>
+        <span id="error-text"></span>
+        <button class="btn btn-sm" type="button" data-action="retry">Retry</button>
+      </div>
+
+      <main id="view-root" class="content" tabindex="-1"></main>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <dialog id="confirm-dialog" class="confirm">
+    <h2 id="confirm-title">Confirm</h2>
+    <p id="confirm-body" class="muted small mt-8"></p>
+    <div class="actions">
+      <button class="btn" type="button" data-action="dialog-cancel">Cancel</button>
+      <button class="btn btn-primary" type="button" data-action="dialog-confirm">Confirm</button>
+    </div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>

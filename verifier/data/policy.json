@@ -1,0 +1,8 @@
+{
+  "version": 7,
+  "minBuild": 2262100000,
+  "maxUpdateAge": 30,
+  "requireFirewall": true,
+  "requireDefender": true,
+  "updatedAt": "2026-11-14T03:43:21.978Z"
+}

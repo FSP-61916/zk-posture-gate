@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZK Posture Gate - this laptop</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+  <main class="content" aria-labelledby="agent-title">
+    <div class="page-head">
+      <div>
+        <h1 id="agent-title">This laptop</h1>
+        <p class="lede">Prove it meets policy without sending what it is running.</p>
+      </div>
+      <span class="badge badge-local">LOCAL ONLY &middot; 127.0.0.1</span>
+    </div>
+
+    <div id="banner" class="banner banner-error" hidden>
+      <strong>&#10006;</strong><span id="banner-text"></span>
+    </div>
+
+    <section class="panel" aria-labelledby="identity-title">
+      <div class="panel-head">
+        <h2 id="identity-title">Device identity</h2>
+        <span id="enrolled-badge" class="badge">checking…</span>
+      </div>
+      <div class="kv">
+        <div class="kv-row"><span class="kv-key">Device id</span><span class="kv-val mono" id="device-id">—</span></div>
+        <div class="kv-row"><span class="kv-key">Verifier</span><span class="kv-val mono" id="verifier-url">—</span></div>
+        <div class="kv-row"><span class="kv-key">Last result</span><span class="kv-val" id="last-result">—</span></div>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="enroll-title">
+      <div class="panel-head"><h2 id="enroll-title">Enroll this laptop</h2></div>
+      <p class="muted small">Ask the admin for a one-time code. Each laptop uses its own code.</p>
+      <form id="enroll-form" class="cards">
+        <label class="field" for="enroll-code">Enrollment code
+          <input id="enroll-code" name="code" type="text" placeholder="ABCD-EFGH" autocomplete="off" spellcheck="false">
+        </label>
+        <label class="field" for="enroll-label">Label (optional)
+          <input id="enroll-label" name="label" type="text" placeholder="Laptop A" maxlength="40">
+        </label>
+        <div class="field">
+          <span class="muted small">&nbsp;</span>
+          <button class="btn" type="submit">Enroll</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel" aria-labelledby="actions-title">
+      <div class="panel-head"><h2 id="actions-title">Attest</h2></div>
+      <div class="panel-head">
+        <span class="muted small">The proof is generated here. The values never leave this device.</span>
+        <span>
+          <button class="btn" id="check-btn" type="button">Check verifier</button>
+          <button class="btn btn-primary" id="attest-btn" type="button">Check my posture</button>
+        </span>
+      </div>
+      <ol id="steps" class="kv" aria-live="polite"></ol>
+      <div id="result" class="banner banner-info" hidden></div>
+    </section>
+
+    <section class="panel" aria-labelledby="local-title">
+      <div class="panel-head">
+        <h2 id="local-title">Checks performed on this device only</h2>
+        <span class="badge badge-ok">stored: 0 values</span>
+      </div>
+      <div class="locks">
+        <div class="lock-row"><span>OS build number</span><span class="lock-tag">never leaves this device</span></div>
+        <div class="lock-row"><span>Days since last update</span><span class="lock-tag">never leaves this device</span></div>
+        <div class="lock-row"><span>Firewall enabled on all profiles</span><span class="lock-tag">never leaves this device</span></div>
+        <div class="lock-row"><span>Defender real-time protection</span><span class="lock-tag">never leaves this device</span></div>
+      </div>
+      <p class="muted small">The verifier receives a proof and seven public signals. Only pass/fail and a reason code come back.</p>
+    </section>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <script src="ui.js"></script>
+</body>
+</html>

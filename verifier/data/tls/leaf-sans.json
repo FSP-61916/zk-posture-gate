@@ -1,0 +1,26 @@
+{
+  "sans": [
+    {
+      "type": "dns",
+      "value": "fsp"
+    },
+    {
+      "type": "dns",
+      "value": "localhost"
+    },
+    {
+      "type": "ip",
+      "value": "127.0.0.1"
+    },
+    {
+      "type": "ip",
+      "value": "192.168.1.3"
+    },
+    {
+      "type": "ip",
+      "value": "192.168.56.1"
+    }
+  ],
+  "hostname": "FSP",
+  "generatedAt": "2026-11-11T06:49:40.965Z"
+}

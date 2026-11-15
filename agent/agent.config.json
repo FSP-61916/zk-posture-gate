@@ -1,0 +1,5 @@
+{
+  "comment": "No secrets belong in this file. The private key is generated on this laptop and stored in agent/data/device.key (git-ignored). Copy tlsCaFingerprint from the verifier's startup output once; leaf renewals do not change it.",
+  "verifierUrl": "http://127.0.0.1:3000",
+  "tlsCaFingerprint": ""
+}

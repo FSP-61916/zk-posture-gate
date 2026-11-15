@@ -1,0 +1,12 @@
+{
+  "devices": [
+    {
+      "deviceId": "dev_2ca43b7f78288a8b8776663f",
+      "publicKey": "MCowBQYDK2VwAyEA22z05efppoKJmXDVV+NKC6Hq9X35dONbp3NmwnL4QBA=",
+      "label": "My Laptop",
+      "enrolledAt": "2026-11-11T06:30:33.007Z",
+      "lastSeen": "2026-11-14T06:17:30.643Z",
+      "lastResult": "GRANTED"
+    }
+  ]
+}
